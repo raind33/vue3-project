@@ -1,8 +1,14 @@
-import Vue from 'vue'
+import {
+  createApp
+} from 'vue'
 import App from './App.vue'
+import router from './router'
 
-Vue.config.productionTip = false
+/* 导入公共的样式 */
+import './assets/news_qa.auto.css'
+import './assets/reset.min.css'
+import './assets/common.less'
 
-new Vue({
-  render: h => h(App)
-}).$mount('#app')
+const app = createApp(App)
+app.use(router)
+app.mount('#app')
