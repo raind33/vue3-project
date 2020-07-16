@@ -9,3 +9,7 @@ document.body.appendChild(game.view)
 export function getCanvasContainer () {
   return game.stage
 }
+
+export function getGame () {
+  return game
+}

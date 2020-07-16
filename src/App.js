@@ -1,9 +1,29 @@
-import { defineComponent, h } from '@vue/runtime-core'
+import { defineComponent, h, computed, ref } from '@vue/runtime-core'
+import StartPage from './views/StartPage'
+import GamePage from './views/GamePage'
 export default defineComponent({
-  render () {
-    return h('circle', { x: 200, y: 200 }, [
-      h('circle', { x: 400, y: 400 }),
-      'RAIN'
+  setup () {
+    const currentPageName = ref('StartPage')
+    const currentPage = computed(() => {
+      if (currentPageName.value === 'StartPage') {
+        return StartPage
+      } else if (currentPageName.value === 'GamePage') {
+        return GamePage
+      }
+    })
+
+    return {
+      currentPageName,
+      currentPage
+    }
+  },
+  render (ctx) {
+    return h('Container', [
+      h(ctx.currentPage, {
+        onClickPage (val) {
+          ctx.currentPageName = val
+        }
+      })
     ])
   }
 })

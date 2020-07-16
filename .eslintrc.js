@@ -14,6 +14,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'camelcase': 0,
-    'no-new': 0
+    'no-new': 0,
+    'vue/custom-event-name-casing': 0
   }
 }
