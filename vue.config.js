@@ -1,6 +1,6 @@
 module.exports = {
   devServer: {
     overlay: false,
-    proxy: 'http://news-at.zhihu.com/api/4'
+    proxy: 'http://localhost:9000'
   }
 }
