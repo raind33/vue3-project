@@ -1,16 +1,17 @@
 <template>
-  <ClipImageUpload/>
-  <ClipAudio/>
+  <div>
+    <span>23</span>
+    <HelloWorld/>
+  </div>
 </template>
 
 <script>
-import ClipImageUpload from '../components//ClipImageUpload'
-import ClipAudio from '../components/ClipAudio'
+import HelloWorld from './HelloWorld'
 export default {
   name: 'Home',
   components: {
-    ClipImageUpload,
-    ClipAudio
+    HelloWorld
+    // ClipAudio
   },
   setup () {
     return {
