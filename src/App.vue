@@ -6,11 +6,8 @@
 
 <script>
 import { reactive, toRefs } from 'vue'
-
 export default {
   name: 'App',
-  components: {
-  },
   setup () {
     const state = reactive({
       a: 1,
