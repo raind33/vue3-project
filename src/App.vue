@@ -1,12 +1,30 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-    </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
-<style lang="scss">
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { Action } from 'vuex-class'
+@Component({
+  components: {}
+})
+export default class App extends Vue {
+  // 存储用户信息
+  @Action('setUser') setUser: any;
+  created () {
+    this.setUser(localStorage.tsToken)
+  }
+}
+</script>
 
+<style lang="scss">
+body,html{
+  height: 100%;
+}
+#app {
+  width: 100%;
+  height: 100%;
+}
 </style>
