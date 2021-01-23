@@ -4,12 +4,12 @@ import Home from '../views/Home.vue'
 import Detail from '../views/Detail.vue'
 import Demo from '../views/Demo.vue'
 // 自动导入后缀为router.js的文件
-const requireService = require.context('.', false, /\.router\.js$/)
+// const requireService = require.context('.', false, /\.router\.js$/)
 let routes = []
-requireService.keys().forEach(filename => {
-  const config = requireService(filename)
-  routes = routes.concat(config.default)
-})
+// requireService.keys().forEach(filename => {
+//   const config = requireService(filename)
+//   routes = routes.concat(config.default)
+// })
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
