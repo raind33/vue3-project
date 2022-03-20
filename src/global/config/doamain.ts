@@ -5,10 +5,10 @@ interface Obj {
 }
 const DOMAIN_MAP: Obj = {
   test: {
-    baseUrl: 'aaa'
+    baseUrl: '/api'
   },
   development: {
-    baseUrl: 'aaa'
+    baseUrl: '/api'
   },
   production: {
     baseUrl: 'aaa'

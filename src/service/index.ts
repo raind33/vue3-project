@@ -1,14 +1,14 @@
 import Http from './http'
 import config from '@/global/config/doamain'
-
+import localCache from '@/utils/cache'
 const service = new Http({
   baseURL: config.baseUrl,
   timeout: 4000,
   interceptors: {
     requestInterceptor(config) {
-      const token = ''
+      const token = localCache.getCache('token')
       if (token) {
-        config.headers!.auth = token
+        config.headers!.Authorization = `Bearer ${token}`
       }
       return config
     },
@@ -16,12 +16,7 @@ const service = new Http({
       return e
     },
     responseInterceptor(res) {
-      const data = res.data
-      if (data.code === '-10001') {
-        console.log('失败')
-      } else {
-        return data
-      }
+      return res
     },
     responseInterceptorCatch(e) {
       if (e.response.status === 404) {

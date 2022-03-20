@@ -16,6 +16,7 @@ module.exports = {
     semi: ['error', 'never'],
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-non-null-assertion': 0,
+    'vue/multi-word-component-names': 0,
     quotes: [
       'error',
       'single',

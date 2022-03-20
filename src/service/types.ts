@@ -8,4 +8,9 @@ export interface Hook {
 }
 export interface RequestConfig extends AxiosRequestConfig {
   interceptors?: Hook
+  showLoading?: boolean
+}
+export interface IDataType<T = any> {
+  code: number
+  data: T
 }
