@@ -1,11 +1,16 @@
 <template>
   <nav>
+    {{ store.counter }}
+    <el-button type="primary">Primary</el-button>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
   <router-view />
 </template>
-
+<script setup lang="ts">
+import { useStore } from './store'
+const store = useStore()
+</script>
 <style lang="less">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
