@@ -3,7 +3,7 @@
 </template>
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { useLoginStore } from './store/login'
+import { useLoginStore } from './store/login/login'
 
 const store = useLoginStore()
 onMounted(() => {

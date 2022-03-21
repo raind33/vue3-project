@@ -3,6 +3,10 @@ import Login from '@/views/login/login.vue'
 import Home from '@/views/home/home.vue'
 const routes: Array<RouteRecordRaw> = [
   {
+    path: '/',
+    redirect: '/main'
+  },
+  {
     path: '/login',
     name: 'login',
     component: Login
@@ -11,6 +15,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/home',
     name: 'home',
     component: Home
+  },
+  {
+    path: '/main',
+    name: 'main',
+    component: () => import('@/views/main/main.vue')
+    // children: [] -> 根据userMenus来决定 -> children
   }
 ]
 

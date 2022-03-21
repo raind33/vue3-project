@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue'
-import { useLoginStore } from '@/store/login'
+import { useLoginStore } from '@/store/login/login'
 import { ElForm } from 'element-plus'
 import localCache from '@/utils/cache'
 

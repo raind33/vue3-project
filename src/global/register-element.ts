@@ -7,7 +7,17 @@ import {
   ElInput,
   ElLink,
   ElTabPane,
-  ElTabs
+  ElAside,
+  ElTabs,
+  ElHeader,
+  ElMain,
+  ElContainer,
+  ElMenu,
+  ElMenuItem,
+  ElSubMenu,
+  ElAvatar,
+  ElDropdown,
+  ElDropdownItem
 } from 'element-plus'
 import 'element-plus/dist/index.css'
 
@@ -19,6 +29,16 @@ const components = [
   ElCheckbox,
   ElForm,
   ElFormItem,
+  ElAside,
+  ElHeader,
+  ElMain,
+  ElContainer,
+  ElMenu,
+  ElMenuItem,
+  ElSubMenu,
+  ElAvatar,
+  ElDropdown,
+  ElDropdownItem,
   ElLink
 ]
 
