@@ -17,7 +17,14 @@ import {
   ElSubMenu,
   ElAvatar,
   ElDropdown,
-  ElDropdownItem
+  ElDropdownItem,
+  ElCol,
+  ElRow,
+  ElSelect,
+  ElOption,
+  ElDatePicker,
+  ElBreadcrumb,
+  ElBreadcrumbItem
 } from 'element-plus'
 import 'element-plus/dist/index.css'
 
@@ -39,7 +46,14 @@ const components = [
   ElAvatar,
   ElDropdown,
   ElDropdownItem,
-  ElLink
+  ElLink,
+  ElSelect,
+  ElOption,
+  ElDatePicker,
+  ElCol,
+  ElRow,
+  ElBreadcrumb,
+  ElBreadcrumbItem
 ]
 
 export default (app: App) => {

@@ -37,12 +37,7 @@ export const useLoginStore = defineStore<string, LoginState, any, any>(
         const userMenusResult = await requestUserMenusByRoleId(userInfo.role.id)
         const userMenus = userMenusResult.data
         this.userMenus = userMenus
-        const routes = mapMenusToRoutes(userMenus)
-
-        // 将routes => router.main.children
-        routes.forEach(route => {
-          router.addRoute('main', route)
-        })
+        this.menuToRoute()
         localCache.setCache('userMenus', userMenus)
 
         setTimeout(() => {
@@ -50,6 +45,7 @@ export const useLoginStore = defineStore<string, LoginState, any, any>(
         }, 2000)
       },
       loadLocalLogin() {
+        debugger
         const token = localCache.getCache('token')
         if (token) {
           this.token = token
@@ -61,8 +57,21 @@ export const useLoginStore = defineStore<string, LoginState, any, any>(
         const userMenus = localCache.getCache('userMenus')
         if (userMenus) {
           this.userMenus = userMenus
+          this.menuToRoute()
         }
+      },
+      menuToRoute() {
+        const routes = mapMenusToRoutes(this.userMenus)
+
+        // 将routes => router.main.children
+        routes.forEach(route => {
+          router.addRoute('main', route)
+        })
       }
     }
   }
 )
+export const setupStore = () => {
+  const store = useLoginStore()
+  store.loadLocalLogin()
+}

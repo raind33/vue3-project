@@ -5,7 +5,7 @@
       <span v-if="!collapse" class="title">Vue3+TS</span>
     </div>
     <el-menu
-      default-active="2"
+      :default-active="defaultValue"
       class="el-menu-vertical"
       :collapse="collapse"
       background-color="#0c2135"
@@ -46,9 +46,11 @@
 </template>
 
 <script lang="ts">
+import { defineComponent, computed, ref } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+
+import { pathMapToMenu } from '@/utils/map-menus'
 import { useLoginStore } from '@/store/login/login'
-import { defineComponent, computed } from 'vue'
-import { useRouter } from 'vue-router'
 
 // vuex - typescript  => pinia
 
@@ -60,11 +62,20 @@ export default defineComponent({
     }
   },
   setup() {
+    // store
     const store = useLoginStore()
     const userMenus = computed(() => store.userMenus)
 
+    // router
     const router = useRouter()
+    const route = useRoute()
+    const currentPath = route.path
 
+    // data
+    const menu = pathMapToMenu(userMenus.value, currentPath)
+    const defaultValue = ref(menu.id + '')
+
+    // event handle
     const handleMenuItemClick = (item: any) => {
       console.log('--------')
       router.push({
@@ -73,6 +84,7 @@ export default defineComponent({
     }
     return {
       userMenus,
+      defaultValue,
       handleMenuItemClick
     }
   }
@@ -118,7 +130,7 @@ export default defineComponent({
     }
   }
 
-  ::v-deep .el-sub-menu__title {
+  ::v-deep .el-submenu__title {
     background-color: #001529 !important;
   }
 
