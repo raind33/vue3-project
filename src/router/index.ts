@@ -32,6 +32,7 @@ const router = createRouter({
   routes
 })
 router.beforeEach(to => {
+  console.log(router.getRoutes())
   if (to.path !== '/login') {
     const token = localCache.getCache('token')
     if (!token) {
@@ -39,6 +40,7 @@ router.beforeEach(to => {
     }
   }
   if (to.path === '/main') {
+    console.log(firstMenu.url)
     return firstMenu.url
   }
   console.log(to)

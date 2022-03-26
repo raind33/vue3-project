@@ -55,6 +55,7 @@ import { useLoginStore } from '@/store/login/login'
 // vuex - typescript  => pinia
 
 export default defineComponent({
+  name: 'NavMenu',
   props: {
     collapse: {
       type: Boolean,

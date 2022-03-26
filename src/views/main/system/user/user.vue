@@ -1,24 +1,46 @@
 <template>
   <div class="user">
-    <hy-form v-bind="searchFormConfig" />
-    <div class="content"></div>
+    <page-search
+      :searchFormConfig="searchFormConfig"
+      @resetBtnClick="handleResetClick"
+      @queryBtnClick="handleQueryClick"
+    />
+    <page-content
+      ref="pageContentRef"
+      :contentTableConfig="contentTableConfig"
+      :pageName="pageName"
+    ></page-content>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HyForm from '@/base-ui/form'
+
+import PageSearch from '@/components/page-search'
+import PageContent from '@/components/page-content'
 
 import { searchFormConfig } from './config/search.config'
+import { contentTableConfig } from './config/content.config'
+
+import { usePageSearch } from '@/hooks/use-page-search'
+import { PageTypes } from '@/store/system/types'
 
 export default defineComponent({
-  name: 'user',
+  name: 'users',
   components: {
-    HyForm
+    PageSearch,
+    PageContent
   },
   setup() {
+    const [handleResetClick, handleQueryClick, pageContentRef] = usePageSearch()
+
     return {
-      searchFormConfig
+      searchFormConfig,
+      contentTableConfig,
+      handleResetClick,
+      handleQueryClick,
+      pageContentRef,
+      pageName: PageTypes.USERS
     }
   }
 })

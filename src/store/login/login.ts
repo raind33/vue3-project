@@ -8,7 +8,7 @@ import localCache from '@/utils/cache'
 import { IAccount } from '@/service/login/type'
 import router from '@/router'
 import { LoginState } from './types'
-import { mapMenusToRoutes } from '@/utils/map-menus'
+import { mapMenusToPermissions, mapMenusToRoutes } from '@/utils/map-menus'
 export const useLoginStore = defineStore<string, LoginState, any, any>(
   'login',
   {
@@ -40,12 +40,9 @@ export const useLoginStore = defineStore<string, LoginState, any, any>(
         this.menuToRoute()
         localCache.setCache('userMenus', userMenus)
 
-        setTimeout(() => {
-          router.push('/main')
-        }, 2000)
+        router.push('/main')
       },
       loadLocalLogin() {
-        debugger
         const token = localCache.getCache('token')
         if (token) {
           this.token = token
@@ -67,6 +64,9 @@ export const useLoginStore = defineStore<string, LoginState, any, any>(
         routes.forEach(route => {
           router.addRoute('main', route)
         })
+        // 获取用户按钮的权限
+        const permissions = mapMenusToPermissions(this.userMenus)
+        this.permissions = permissions
       }
     }
   }
