@@ -17,6 +17,9 @@ interface IPayload {
 }
 export interface ASystemAction {
   getPageListAction(val: IPayload): void
+  deletePageDataAction(val: any): void
+  createPageDataAction(val: any): void
+  editPageDataAction(val: any): void
 }
 export enum PageTypes {
   ROLE = 'role',

@@ -27,7 +27,8 @@ import {
   ElBreadcrumbItem,
   ElTable,
   ElTableColumn,
-  ElPagination
+  ElPagination,
+  ElDialog
 } from 'element-plus'
 import 'element-plus/dist/index.css'
 
@@ -59,7 +60,8 @@ const components = [
   ElBreadcrumbItem,
   ElTable,
   ElTableColumn,
-  ElPagination
+  ElPagination,
+  ElDialog
 ]
 
 export default (app: App) => {

@@ -86,6 +86,13 @@ class Http {
   post<T>(config: RequestConfig): Promise<T> {
     return this.request<T>({ ...config, method: 'post' })
   }
+  delete<T = any>(config: RequestConfig): Promise<T> {
+    return this.request<T>({ ...config, method: 'DELETE' })
+  }
+
+  patch<T = any>(config: RequestConfig): Promise<T> {
+    return this.request<T>({ ...config, method: 'PATCH' })
+  }
 }
 
 export default Http

@@ -9,6 +9,7 @@ import { IAccount } from '@/service/login/type'
 import router from '@/router'
 import { LoginState } from './types'
 import { mapMenusToPermissions, mapMenusToRoutes } from '@/utils/map-menus'
+import { useStore } from '..'
 export const useLoginStore = defineStore<string, LoginState, any, any>(
   'login',
   {
@@ -73,5 +74,7 @@ export const useLoginStore = defineStore<string, LoginState, any, any>(
 )
 export const setupStore = () => {
   const store = useLoginStore()
+  const global = useStore()
   store.loadLocalLogin()
+  global.getInitialDataAction()
 }
