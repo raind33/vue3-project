@@ -11,7 +11,7 @@ const DOMAIN_MAP: Obj = {
     baseUrl: '/api'
   },
   production: {
-    baseUrl: 'aaa'
+    baseUrl: 'http://152.136.185.210:5000'
   }
 }
 const env = DOMAIN_MAP[process.env.NODE_ENV || 'development']

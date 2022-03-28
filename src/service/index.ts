@@ -1,5 +1,5 @@
 import Http from './http'
-import config from '@/global/config/doamain'
+import config from '@/global/config/domain'
 import localCache from '@/utils/cache'
 const service = new Http({
   baseURL: config.baseUrl,
